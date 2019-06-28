@@ -1,0 +1,31 @@
+version: v1
+name: erc20
+
+contract:
+  address: '0x'
+  path: ./contracts/ERC20.sol
+  name: ERC20
+  compilerVersion: 0.4.24
+
+blockchain:
+  platform: klaytn
+  network: baobob
+
+handlers:
+  event1:
+    event: Transfer(address,address,uint256)
+    # If you want to include additional logic, you need to uncomment it.
+    # version: v1
+    # runtime: tsnode8
+    # path: ./handlers/transfer.ts
+    # dep: ./handlers/package.json
+    # function: transfer
+
+  event2:
+    event: Approval(address,address,uint256)
+
+webhook:
+  url: https://localhost:8080
+  method: POST
+  headers: 
+    Authorization: 'Bearer YOUR-OWN-TOKEN'
